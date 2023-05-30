@@ -3,7 +3,7 @@ from flask_cors import CORS
 from src.load_dataframes import load_dataframes
 from src.embeddings import get_embedding, load_model
 from src.find_closest import find_closest_lines
-from src.fetch_image import fetch_image
+# from src.fetch_image import fetch_image
 from colorama import Style, init, Fore
 
 # Initialize colorama
