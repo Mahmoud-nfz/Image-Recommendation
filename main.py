@@ -31,21 +31,18 @@ def upload_file():
     print(closest_indices)
     print(df['image'][closest_indices])
 
-    images = df['image'][closest_indices].tolist()
-    print(images)
+    imageNames = df['image'][closest_indices].tolist()
+    print(imageNames)
 
-    for i in images:
-        try:
-            fetch_image(df['image'][i])
-            print(Fore.Green+"Success"+Style.RESET_ALL)
-        except:
-            print(Fore.RED+"Error"+Style.RESET_ALL)
+    imageLinks = [
+        images[images['filename'] == imageName]['link'].values[0] for imageName in imageNames
+    ]
 
     # return closest_indices as json object
-    return jsonify({"recommendations":images}), 200
+    return jsonify({"recommendations":imageLinks}), 200
     # return 'File saved successfully', 200
 
 if __name__ == '__main__':
-    df, df_embds = load_dataframes()
+    df, df_embds, images = load_dataframes()
     model = load_model()
     app.run(port=9090)
