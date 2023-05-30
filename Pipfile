@@ -13,6 +13,7 @@ scipy = "*"
 pillow = "*"
 scikit-learn = "*"
 colorama = "*"
+flask-cors = "*"
 
 [dev-packages]
 

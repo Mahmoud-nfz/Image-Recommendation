@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from src.load_dataframes import load_dataframes
 from src.embeddings import get_embedding, load_model
 from src.find_closest import find_closest_lines
@@ -8,8 +9,8 @@ from colorama import Style, init, Fore
 # Initialize colorama
 init()
 
-
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -41,7 +42,7 @@ def upload_file():
             print(Fore.RED+"Error"+Style.RESET_ALL)
 
     # return closest_indices as json object
-    return jsonify(images), 200
+    return jsonify({"recommendations":images}), 200
     # return 'File saved successfully', 200
 
 if __name__ == '__main__':
