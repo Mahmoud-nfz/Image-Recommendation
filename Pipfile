@@ -9,6 +9,10 @@ pandas = "*"
 numpy = "*"
 kaggle = "*"
 flask = "*"
+scipy = "*"
+pillow = "*"
+scikit-learn = "*"
+colorama = "*"
 
 [dev-packages]
 
