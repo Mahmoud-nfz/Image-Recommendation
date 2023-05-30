@@ -28,9 +28,12 @@ def upload_file():
 
     closest_indices = find_closest_lines(df_embds, embedding, top_n=5)
     print(closest_indices)
+    print(df['image'][closest_indices])
 
-    print(df.head())
-    for i in closest_indices:
+    images = df['image'][closest_indices].tolist()
+    print(images)
+
+    for i in images:
         try:
             fetch_image(df['image'][i])
             print(Fore.Green+"Success"+Style.RESET_ALL)
@@ -38,7 +41,7 @@ def upload_file():
             print(Fore.RED+"Error"+Style.RESET_ALL)
 
     # return closest_indices as json object
-    return jsonify(closest_indices.tolist()), 200
+    return jsonify(images), 200
     # return 'File saved successfully', 200
 
 if __name__ == '__main__':
