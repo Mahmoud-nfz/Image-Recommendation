@@ -15,3 +15,6 @@ https://www.kaggle.com/code/mahmoud17/image-recommendation
     "image": "image"
 }
 ```
+
+
+Read the full paper at : https://github.com/Mahmoud-nfz/Image-Recommendation/blob/main/Image_Based_Search_and_Recommendation_System_paper.pdf
